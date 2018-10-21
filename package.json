@@ -6,6 +6,7 @@
   "scripts": {
     "webserver": "webpack-dev-server",
     "electron": "electron .",
+    "dev": "concurrently 'npm run webserver' 'wait-on http://localhost:9000 && npm run electron'",
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,8 +18,10 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "concurrently": "^4.0.1",
     "electron": "^3.0.5",
     "html-webpack-plugin": "^3.2.0",
+    "wait-on": "^3.1.0",
     "webpack": "^4.21.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
