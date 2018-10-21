@@ -13,6 +13,11 @@ module.exports = {
       template: "index_template.html"
     })
   ],
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    quiet: true,
+    port: 9000
+  },
   module: {
     rules: [
       {
