@@ -1,26 +1,21 @@
 import React from "react";
+import addEntry from "./addEntry";
 
 class Entries extends React.Component {
   state = {
     entries: []
   };
 
-  addEntry = (time, AET) => {
-    this.setState(state => ({
-      entries: [
-        ...state.entries,
-        {
-          time: new Date(time).getTime(),
-          AET
-        }
-      ]
+  handleAddEntry = (time, AET) => {
+    this.setState(({ entries }) => ({
+      entries: addEntry(time, AET, entries)
     }));
   };
 
   render() {
     return this.props.children({
       entries: this.state.entries,
-      addEntry: this.addEntry
+      addEntry: this.handleAddEntry
     });
   }
 }
