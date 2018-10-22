@@ -10,7 +10,7 @@ class Entries extends React.Component {
       entries: [
         ...state.entries,
         {
-          time,
+          time: new Date(time).getTime(),
           AET
         }
       ]
@@ -18,7 +18,6 @@ class Entries extends React.Component {
   };
 
   render() {
-    // console.log(this.state.entries);
     return this.props.children({
       entries: this.state.entries,
       addEntry: this.addEntry

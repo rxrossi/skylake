@@ -45,6 +45,6 @@ describe("Entries", () => {
       .children()
       .props();
 
-    expect(entries).toMatchObject([{ time, AET: 8 }]);
+    expect(entries).toMatchObject([{ time: new Date(time).getTime(), AET: 8 }]);
   });
 });
