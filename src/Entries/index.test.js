@@ -32,19 +32,19 @@ describe("Entries", () => {
   });
 
   describe("Adding a entry", () => {
-    const returnOfAddEntries = [
-      {
-        mock: "mocked"
-      }
-    ];
-    addEntry.mockImplementation(() => returnOfAddEntries);
-
-    let entries;
     const time = "10/21/2018 17:31:04";
     const AET = 8;
+    let entries;
+    let returnOfAddEntries;
 
     beforeEach(() => {
       const uut = build();
+      returnOfAddEntries = [
+        {
+          mock: "mocked"
+        }
+      ];
+      addEntry.mockImplementation(() => returnOfAddEntries);
 
       uut
         .children()
