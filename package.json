@@ -33,6 +33,7 @@
   "dependencies": {
     "electron-clipboard-watcher": "^1.0.1",
     "jest": "^23.6.0",
+    "luxon": "^1.4.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11"

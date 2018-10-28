@@ -1,5 +1,4 @@
 import React from "react";
-// import clipboardWatcher from ;
 const clipboardWatcher = window.require("electron-clipboard-watcher");
 
 export default class ClipboardWatcher extends React.Component {
