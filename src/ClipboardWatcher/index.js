@@ -1,5 +1,6 @@
 import React from "react";
-import clipboardWatcher from "electron-clipboard-watcher";
+// import clipboardWatcher from ;
+const clipboardWatcher = window.require("electron-clipboard-watcher");
 
 export default class ClipboardWatcher extends React.Component {
   componentDidMount() {
@@ -12,7 +13,7 @@ export default class ClipboardWatcher extends React.Component {
   onEntryDetect = entry => {
     const [dateTime, AET] = entry.split("\t");
 
-    if (Date.parse(dateTime)) {
+    if (Date.parse(dateTime) && entry.split("\t").length === 2) {
       this.props.onEntryDetect(dateTime, AET);
     }
   };

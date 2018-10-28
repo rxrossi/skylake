@@ -58,6 +58,7 @@ describe("ClipboardWatcher", () => {
     it("does not call onEntryDetect if clipboard change is not in valid format", () => {
       const textWithTabCharacter = "some text 	10";
       const simpleString = "string";
+      const justTheDate = "10 28 2018 13:00:55";
 
       const onEntryDetect = jest.fn();
 
@@ -67,6 +68,7 @@ describe("ClipboardWatcher", () => {
 
       simulateClipboardTextChange(clipboardWatcher, simpleString);
       simulateClipboardTextChange(clipboardWatcher, textWithTabCharacter);
+      simulateClipboardTextChange(clipboardWatcher, justTheDate);
 
       expect(onEntryDetect).toHaveBeenCalledTimes(0);
     });
