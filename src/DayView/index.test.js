@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import DayView from "./DayView";
+import DayView from ".";
 
 describe("DayView", () => {
   it("renders the given entries", () => {

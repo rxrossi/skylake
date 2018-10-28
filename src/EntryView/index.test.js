@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import EntryView from "./EntryView";
+import EntryView from ".";
 
 describe("EntryView", () => {
   it("renders the date in expected format", () => {
