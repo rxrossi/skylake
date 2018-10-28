@@ -32,7 +32,7 @@ describe("Entries", () => {
   });
 
   describe("Adding a entry", () => {
-    const time = "10/21/2018 17:31:04";
+    const dateTime = "10/21/2018 17:31:04";
     const AET = 8;
     let entries;
     let returnOfAddEntries;
@@ -49,7 +49,7 @@ describe("Entries", () => {
       uut
         .children()
         .props()
-        .addEntry(time, AET);
+        .addEntry(dateTime, AET);
 
       ({ entries } = uut
         .update()
@@ -62,7 +62,7 @@ describe("Entries", () => {
     });
 
     it("calls addEntry with correct values", () => {
-      expect(addEntry).toHaveBeenCalledWith(time, AET, []);
+      expect(addEntry).toHaveBeenCalledWith(dateTime, AET, []);
     });
   });
 });

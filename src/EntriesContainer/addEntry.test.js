@@ -2,12 +2,12 @@ import addEntry from "./addEntry";
 
 describe("AddEntries", () => {
   it("correctly adds a new entry in UTC milliseconds", () => {
-    const time = "10/21/2018 17:31:04";
+    const dateTime = "10/21/2018 17:31:04";
     const AET = 8;
 
-    expect(addEntry(time, AET, [])).toEqual([
+    expect(addEntry(dateTime, AET, [])).toEqual([
       {
-        time: new Date(time).getTime(),
+        dateTime: new Date(dateTime).getTime(),
         AET
       }
     ]);

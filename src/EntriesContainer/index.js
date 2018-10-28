@@ -6,9 +6,9 @@ class Entries extends React.Component {
     entries: []
   };
 
-  handleAddEntry = (time, AET) => {
+  handleAddEntry = (dateTime, AET) => {
     this.setState(({ entries }) => ({
-      entries: addEntry(time, AET, entries)
+      entries: addEntry(dateTime, AET, entries)
     }));
   };
 
