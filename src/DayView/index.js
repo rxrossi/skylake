@@ -1,16 +1,24 @@
 import React from "react";
+import "./dayView.css";
 
 function DayView({ entries }) {
   return (
-    <div>
-      <ul>
+    <table>
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>AET</td>
+        </tr>
+      </thead>
+      <tbody>
         {entries.map(({ time, AET }) => (
-          <li data-test="entry" key={time}>
-            {time} - {AET}
-          </li>
+          <tr data-test="entry" key={time}>
+            <td>{time}</td>
+            <td>{AET}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 }
 
