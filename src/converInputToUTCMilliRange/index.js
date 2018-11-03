@@ -1,25 +1,25 @@
-import { DateTime } from "luxon";
+import { DateTime, Duration } from "luxon";
 
 export default (givenPeriod, zone) => {
   const [year, month, day] = givenPeriod;
 
-  const [yearEnd, monthEnd, dayEnd] = [
-    ...givenPeriod.slice(0, givenPeriod.length - 1),
-    givenPeriod[givenPeriod.length - 1] + 1
-  ];
+  const start = DateTime.fromObject({
+    year,
+    month,
+    day,
+    zone
+  });
 
-  return [
-    DateTime.fromObject({
-      year,
-      month,
-      day,
-      zone
-    }).toMillis(),
-    DateTime.fromObject({
-      year: yearEnd,
-      month: monthEnd,
-      day: dayEnd,
-      zone
-    }).toMillis()
-  ];
+  return [start.toMillis(), addDuration(givenPeriod.length, start).toMillis()];
 };
+
+function addDuration(addTo, initialDateTime) {
+  switch (addTo) {
+    case 1:
+      return initialDateTime.plus(Duration.fromObject({ years: 1 }));
+    case 2:
+      return initialDateTime.plus(Duration.fromObject({ months: 1 }));
+    case 3:
+      return initialDateTime.plus(Duration.fromObject({ days: 1 }));
+  }
+}
