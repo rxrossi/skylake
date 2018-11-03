@@ -1,9 +1,12 @@
+import { saveEntry } from "./storage";
+
 export default (time, AET, entries) => {
-  return [
-    ...entries,
-    {
-      dateTime: new Date(time).getTime(),
-      AET
-    }
-  ];
+  const entry = {
+    dateTime: new Date(time).getTime(),
+    AET
+  };
+
+  saveEntry(entry);
+
+  return [...entries, entry];
 };
