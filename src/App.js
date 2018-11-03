@@ -2,20 +2,14 @@ import React, { Fragment } from "react";
 import { hot } from "react-hot-loader";
 import EntriesRenderProp from "./EntriesRenderProp";
 import ClipboardWatcher from "./ClipboardWatcher";
+import { convertEntriesToTime } from "./convertEntriesToDisplay";
 import DayView from "./DayView";
-
-function mapEntries(entries) {
-  return entries.map(entry => ({
-    time: entry.dateTime,
-    AET: entry.AET
-  }));
-}
 
 function App() {
   return (
     <EntriesRenderProp>
       {({ entries, addEntry }) => {
-        const entriesInDisplayFormat = mapEntries(entries);
+        const entriesInDisplayFormat = convertEntriesToTime(entries);
         return (
           <Fragment>
             <DayView entries={entriesInDisplayFormat} />
