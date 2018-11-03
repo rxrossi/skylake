@@ -4,6 +4,7 @@ import EntriesRenderProp from "./EntriesRenderProp";
 import ClipboardWatcher from "./ClipboardWatcher";
 import { convertEntriesToTime } from "./convertEntriesToDisplay";
 import DayView from "./DayView";
+import DisplayEntriesAETSum from "./DisplayEntriesAETSum";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         return (
           <Fragment>
             <DayView entries={entriesInDisplayFormat} />
+            <hr />
+            Total AET: <DisplayEntriesAETSum entries={entries} />
             <ClipboardWatcher watchDelay={0} onEntryDetect={addEntry} />
           </Fragment>
         );
