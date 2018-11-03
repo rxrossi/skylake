@@ -1,4 +1,10 @@
-export function saveEntry(entry) {}
+let volatileEntries = [];
+
+export function saveEntry(entry) {
+  volatileEntries = [...volatileEntries, entry];
+  localStorage.setItem("entries", volatileEntries);
+}
+
 export function loadEntries() {
-  return [];
+  return localStorage.getItem("entries") || [];
 }
