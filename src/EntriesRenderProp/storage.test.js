@@ -24,10 +24,10 @@ describe("Storage", () => {
 
       saveEntry(entry2);
 
-      expect(window.localStorage.setItem).toHaveBeenLastCalledWith("entries", [
-        entry,
-        entry2
-      ]);
+      expect(window.localStorage.setItem).toHaveBeenLastCalledWith(
+        "entries",
+        JSON.stringify([entry, entry2])
+      );
     });
 
     describe("loadEntries", () => {
@@ -42,7 +42,9 @@ describe("Storage", () => {
       });
 
       it("returns the response of localStorage.getItem", () => {
-        window.localStorage.getItem.mockReturnValueOnce(["item1"]);
+        window.localStorage.getItem.mockReturnValueOnce(
+          JSON.stringify(["item1"])
+        );
         const response = loadEntries();
         expect(response).toEqual(["item1"]);
       });
