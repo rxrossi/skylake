@@ -12,7 +12,7 @@ export function convertEntriesToDateTime(entries, zone) {
 export function convertEntriesToTime(entries, zone) {
   return entries.map(({ AET, dateTime }) => ({
     AET,
-    dateTime: DateTime.fromJSDate(new Date(dateTime))
+    time: DateTime.fromJSDate(new Date(dateTime))
       .setZone(zone)
       .toFormat("HH:mm:ss")
   }));

@@ -35,7 +35,7 @@ describe("convertEntriesToDisplay", () => {
       expect(convertEntriesToTime(entries)).toMatchObject([
         {
           AET: 8,
-          dateTime: "17:31:04"
+          time: "17:31:04"
         }
       ]);
     });
@@ -46,7 +46,7 @@ describe("convertEntriesToDisplay", () => {
       ).toMatchObject([
         {
           AET: 8,
-          dateTime: "09:31:04"
+          time: "09:31:04"
         }
       ]);
     });
