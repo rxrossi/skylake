@@ -1,4 +1,6 @@
 import filter from ".";
+import convertInputToUTCMilliRange from "../converInputToUTCMilliRange";
+import converInputToUTCMilliRange from "../converInputToUTCMilliRange";
 
 describe("Filter", () => {
   const entries = [
@@ -33,30 +35,26 @@ describe("Filter", () => {
   ];
 
   it("filter by day", () => {
-    const start = [2018, 12, 3];
-    const end = [2018, 12, 3];
+    const range = converInputToUTCMilliRange([2018, 12, 3]);
 
-    expect(filter(entries)(start, end)).toMatchObject(entries.slice(0, 3));
+    expect(filter(entries)(range)).toMatchObject(entries.slice(0, 3));
   });
 
   it("filter by day 2", () => {
-    const start = [2018, 12, 4];
-    const end = [2018, 12, 4];
+    const range = converInputToUTCMilliRange([2018, 12, 4]);
 
-    expect(filter(entries)(start, end)).toMatchObject(entries.slice(3, 5));
+    expect(filter(entries)(range)).toMatchObject(entries.slice(3, 5));
   });
 
   it("filter by month", () => {
-    const start = [2018, 12];
-    const end = [2018, 12];
+    const range = converInputToUTCMilliRange([2018, 12]);
 
-    expect(filter(entries)(start, end)).toMatchObject(entries.slice(0, 5));
+    expect(filter(entries)(range)).toMatchObject(entries.slice(0, 5));
   });
 
   it("filter by year", () => {
-    const start = [2018];
-    const end = [2018];
+    const range = converInputToUTCMilliRange([2018]);
 
-    expect(filter(entries)(start, end)).toMatchObject(entries.slice(0, 5));
+    expect(filter(entries)(range)).toMatchObject(entries.slice(0, 5));
   });
 });
