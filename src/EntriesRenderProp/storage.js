@@ -6,11 +6,9 @@ export function saveEntry(entry) {
 }
 
 export function loadEntries() {
-  let entries = [];
-
   try {
-    entries = JSON.parse(localStorage.getItem("entries")) || [];
+    volatileEntries = JSON.parse(localStorage.getItem("entries")) || [];
   } catch (e) {}
 
-  return entries;
+  return volatileEntries;
 }
