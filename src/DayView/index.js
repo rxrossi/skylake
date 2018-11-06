@@ -1,6 +1,7 @@
 import React from "react";
 import "./dayView.css";
 
+//
 function DayView({ entries }) {
   return (
     <table>
