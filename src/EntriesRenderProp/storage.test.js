@@ -2,8 +2,8 @@ import { saveEntry, loadEntries } from "./storage";
 
 Object.defineProperty(window, "localStorage", {
   value: {
-    setItem: jest.fn(),
-    getItem: jest.fn()
+    setItem: jest.fn(() => null),
+    getItem: jest.fn(() => null)
   }
 });
 
@@ -37,6 +37,7 @@ describe("Storage", () => {
       });
 
       it("returns a empty array if the localStore returns nothing", () => {
+        //
         const response = loadEntries();
         expect(response).toEqual([]);
       });
