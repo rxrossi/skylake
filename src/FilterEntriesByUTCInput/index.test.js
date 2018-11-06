@@ -1,6 +1,5 @@
 import filter from ".";
-import convertInputToUTCMilliRange from "../converInputToUTCMilliRange";
-import converInputToUTCMilliRange from "../converInputToUTCMilliRange";
+import converInputToUTCMilliRange from "../convertInputToUTCMilliRange";
 
 describe("Filter", () => {
   const entries = [
@@ -35,25 +34,25 @@ describe("Filter", () => {
   ];
 
   it("filter by day", () => {
-    const range = converInputToUTCMilliRange([2018, 12, 3]);
+    const range = converInputToUTCMilliRange("2018-12-03");
 
     expect(filter(entries)(range)).toMatchObject(entries.slice(0, 3));
   });
 
   it("filter by day 2", () => {
-    const range = converInputToUTCMilliRange([2018, 12, 4]);
+    const range = converInputToUTCMilliRange("2018-12-04");
 
     expect(filter(entries)(range)).toMatchObject(entries.slice(3, 5));
   });
 
   it("filter by month", () => {
-    const range = converInputToUTCMilliRange([2018, 12]);
+    const range = converInputToUTCMilliRange("2018-12");
 
     expect(filter(entries)(range)).toMatchObject(entries.slice(0, 5));
   });
 
   it("filter by year", () => {
-    const range = converInputToUTCMilliRange([2018]);
+    const range = converInputToUTCMilliRange("2018");
 
     expect(filter(entries)(range)).toMatchObject(entries.slice(0, 5));
   });
