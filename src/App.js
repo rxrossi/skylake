@@ -5,17 +5,35 @@ import ClipboardWatcher from "./ClipboardWatcher";
 import { convertEntriesToTime } from "./convertEntriesToDisplay";
 import DayView from "./DayView";
 import DisplayEntriesAETSum from "./DisplayEntriesAETSum";
+import DaySelectOutputUTCMilli from "./DaySelectOutputUTCMilli";
+import convertInputToUTCMilliRange from "./convertInputToUTCMilliRange";
+import filterEntriesByUTCInput from "./filterEntriesByUTCInput";
 
 function App() {
   return (
     <EntriesRenderProp>
       {({ entries, addEntry }) => {
-        const entriesInDisplayFormat = convertEntriesToTime(entries);
         return (
           <Fragment>
-            <DayView entries={entriesInDisplayFormat} />
-            <hr />
-            Total AET: <DisplayEntriesAETSum entries={entries} />
+            <DaySelectOutputUTCMilli>
+              {date => {
+                const entriesInDisplayFormat = convertEntriesToTime(
+                  date
+                    ? filterEntriesByUTCInput(entries)(
+                        convertInputToUTCMilliRange(date)
+                      )
+                    : entries
+                );
+
+                return (
+                  <div>
+                    <DayView entries={entriesInDisplayFormat} />
+                    <hr />
+                    Total AET: <DisplayEntriesAETSum entries={entries} />
+                  </div>
+                );
+              }}
+            </DaySelectOutputUTCMilli>
             <ClipboardWatcher watchDelay={0} onEntryDetect={addEntry} />
           </Fragment>
         );

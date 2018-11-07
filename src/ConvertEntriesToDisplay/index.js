@@ -14,6 +14,7 @@ export function convertEntriesToTime(entries, zone) {
     AET,
     time: DateTime.fromJSDate(new Date(dateTime))
       .setZone(zone)
-      .toFormat("HH:mm:ss")
+      // .toFormat("HH:mm:ss")
+      .toFormat("LL/dd/yyyy HH:mm:ss")
   }));
 }
