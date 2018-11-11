@@ -28,7 +28,7 @@ function App() {
                 return (
                   <div>
                     <hr />
-                    Total AET: <DisplayEntriesAETSum entries={entries} />
+                    Total AET: <DisplayEntriesAETSum entries={entriesInDisplayFormat} />
                     <hr />
                     <DayView entries={entriesInDisplayFormat.reverse()} />
                   </div>
