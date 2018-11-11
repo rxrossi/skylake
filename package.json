@@ -6,7 +6,7 @@
   "scripts": {
     "webserver": "webpack-dev-server",
     "electron": "electron .",
-    "dev": "concurrently 'npm run webserver' 'wait-on http://localhost:9000 && npm run electron'",
+    "dev": "concurrently \"npm run webserver\" \"wait-on http://localhost:9000 && npm run electron\"",
     "build": "webpack --config webpack.config.js",
     "test": "jest"
   },
