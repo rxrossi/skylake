@@ -19,10 +19,21 @@ class Entries extends React.Component {
     }));
   };
 
+  handlePopLastEntry = () => {
+    this.setState(({ entries }) => {
+      entries.pop()
+      return {
+        entries: entries
+      }
+    })
+  }
+
+
   render() {
     return this.props.children({
       entries: this.state.entries,
-      addEntry: this.handleAddEntry
+      addEntry: this.handleAddEntry,
+      removeLastEntryFromStateOnly: this.handlePopLastEntry
     });
   }
 }

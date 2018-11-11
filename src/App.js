@@ -12,7 +12,7 @@ import filterEntriesByUTCInput from "./filterEntriesByUTCInput";
 function App() {
   return (
     <EntriesRenderProp>
-      {({ entries, addEntry }) => {
+      {({ entries, addEntry, removeLastEntryFromStateOnly }) => {
         return (
           <Fragment>
             <DaySelectOutputUTCMilli>
@@ -30,6 +30,7 @@ function App() {
                     <hr />
                     Total AET: <DisplayEntriesAETSum entries={entriesInDisplayFormat} />
                     <hr />
+		    <button onClick={removeLastEntryFromStateOnly}>Pop last </button>
                     <DayView entries={entriesInDisplayFormat.reverse()} />
                   </div>
                 );
